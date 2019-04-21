@@ -36,3 +36,11 @@ Route::get('/roles/{id}/users','RoleController@showUsers');
 //Blogs
 Route::get('/blogs', 'BlogController@index');
 Route::get('/blogs/{id}', 'BlogController@show');
+
+//Posts
+Route::resource('/posts', 'PostController')->parameters(['post'=>'id']);
+
+Route::get('/posts-test', 'PostController@test');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

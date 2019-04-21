@@ -7,6 +7,7 @@ use App\User;
 use App\Role;
 use App\RoleUser;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -101,5 +102,11 @@ class RoleUserSeeder extends Seeder{
             }
             $ruModel->save();
         }
+    }
+}
+
+class PostSeeder extends Seeder{
+    public function run(){
+
     }
 }
