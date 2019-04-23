@@ -24,11 +24,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-//        dd($posts[0]);
         $filledposts = $posts->map(function($post){
             return $post->only('id','title', 'content');
         });
-//        dd($filledposts->toArray());
         return view('posts.index', ["posts"=>$filledposts]);
     }
 

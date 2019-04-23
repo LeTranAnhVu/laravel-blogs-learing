@@ -15,4 +15,9 @@ class RoleController extends Controller
         }
         return 'f';
     }
+
+    public function show($id){
+        $role = Role::with('users.blogs')->find($id);
+        return $role;
+    }
 }

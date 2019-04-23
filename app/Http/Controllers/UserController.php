@@ -19,4 +19,9 @@ class UserController extends Controller
         $roles = User::find($id)->roles;
         return $roles;
     }
+
+    public  function show($id){
+        $user = User::with(['roles', 'blogs'])->find($id);
+        return $user;
+    }
 }

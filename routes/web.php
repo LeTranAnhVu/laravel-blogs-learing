@@ -1,5 +1,6 @@
 <?php
 use \App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,7 @@ Route::get('/blogs/{id}', function($id){
 
 // users
 Route::get('users', 'UserController@index');
+Route::get('/users/{id}', 'UserController@show');
 
 Route::get('/users/{id}/blogs', 'UserController@showBlogs');
 
@@ -32,6 +34,7 @@ Route::get('users/{id}/roles', 'UserController@showRoles');
 
 // roles
 Route::get('/roles/{id}/users','RoleController@showUsers');
+Route::get('/roles/{id}', 'RoleController@show');
 
 //Blogs
 Route::get('/blogs', 'BlogController@index');
@@ -41,6 +44,10 @@ Route::get('/blogs/{id}', 'BlogController@show');
 Route::resource('/posts', 'PostController')->parameters(['post'=>'id']);
 
 Route::get('/posts-test', 'PostController@test');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// projects
+
+Route::resource('/projects', 'ProjectController');

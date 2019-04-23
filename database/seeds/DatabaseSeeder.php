@@ -1,11 +1,13 @@
 <?php
 
+use App\Project;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Blog;
 use App\User;
 use App\Role;
 use App\RoleUser;
+use App\Task;
 
 
 class DatabaseSeeder extends Seeder
@@ -18,15 +20,42 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call(blogSeeder::class);
-
-        $this->call(userSeeder::class);
-
-        $this->call(RoleSeeder::class);
-        $this->call(RoleUserSeeder::class);
+//        $this->call(blogSeeder::class);
+////
+////        $this->call(userSeeder::class);
+////
+////        $this->call(RoleSeeder::class);
+////        $this->call(RoleUserSeeder::class);
+//            $this->call(ProjectSeeder::class);
+            $this->call(TaskSeeder::class);
     }
 }
 
+class TaskSeeder extends Seeder{
+    public function run(){
+        $data = [
+            ['name' => 'cham cong', 'project_id'=> 1],
+            ['name' => 'check bao hiem', 'project_id'=> 1],
+            ['name' => 'check in', 'project_id'=> 2],
+            ['name' => 'bao cao thue', 'project_id'=> 1],
+            ['name' => 'ruoc con', 'project_id'=> 2],
+            ['name' => 'tester', 'project_id'=> 1],
+        ];
+        foreach ($data as $d) {
+            Task::create($d);
+        }
+    }
+}
+
+class ProjectSeeder extends Seeder{
+
+    public function run(){
+        Project::create([
+            'name'=>'gumike',
+            'description'=> 'cat html, css, animation, etc'
+        ]);
+    }
+}
 
 class blogSeeder extends Seeder
 {
